@@ -10,6 +10,7 @@ class App extends React.Component {
     this.addItem = this.addItem.bind(this);
     this.completeItem = this.completeItem.bind(this);
     this.resetItems = this.resetItems.bind(this);
+    this.addItemOnKeyPressEnter = this.addItemOnKeyPressEnter.bind(this);
   }
 
   addItem () {
@@ -18,6 +19,16 @@ class App extends React.Component {
     itemsArr.push({id: itemsArr.length, text: input.value, status: false});
     this.setState({ items: itemsArr });
     input.value = "";
+  }
+
+  addItemOnKeyPressEnter = (event) => {
+    if(event.key === 'Enter') {
+      const input = document.getElementById("input");
+      const itemsArr = [...this.state.items];
+      itemsArr.push({id: itemsArr.length, text: input.value, status: false});
+      this.setState({ items: itemsArr });
+      input.value = "";
+    }
   }
 
   completeItem (id) {
@@ -60,14 +71,15 @@ class App extends React.Component {
       return (
         <li key={element.id} className={element.status ? "item item-done" : "item"}>
           <span className="span">{element.text}</span>
-          <div className="wrapper-flex">
+
             {!element.status
-              ? <div><button className="button" onClick={() => {this.completeItem(element.id)}}>Done</button><button className="button" >Change</button></div>
+              ? <div className="wrapper-flex">
+                  <button className="button" onClick={() => {this.completeItem(element.id)}}>Done</button>
+                  <button className="button" >Change</button>
+                </div>
               : ""
             }
 
-
-          </div>
         </li>
       )
     });
@@ -83,7 +95,7 @@ class App extends React.Component {
           <ul className="list">
             {listItem}
           </ul>
-          <input className="input" type="text" id="input" placeholder="Write your task here..." />
+          <input className="input" type="text" id="input" onKeyPress={this.addItemOnKeyPressEnter} placeholder="Write your task here..." />
         </div>
         <div className="wrapper-flex" >
           <button className="button" onClick={this.addItem}>Add</button>
