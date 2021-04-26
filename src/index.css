@@ -132,3 +132,11 @@ code {
 .button:hover {
   background-color: #273b6d;
 }
+
+.button-done {
+  background-color: #375f40;
+}
+
+.button-delete {
+  background-color: brown;
+}

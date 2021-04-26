@@ -9,6 +9,7 @@ class App extends React.Component {
 
     this.addItem = this.addItem.bind(this);
     this.completeItem = this.completeItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
     this.resetItems = this.resetItems.bind(this);
     this.addItemOnKeyPressEnter = this.addItemOnKeyPressEnter.bind(this);
   }
@@ -40,10 +41,13 @@ class App extends React.Component {
     })
   }
 
-  changeItem (id) {
-    const input = document.getElementById("input");
+  deleteItem (id) {
     const itemsArr = [...this.state.items];
     const index = itemsArr.map(item => item.id).indexOf(id);
+    itemsArr.splice(index, 1);
+    this.setState({
+      items: itemsArr
+    })
   }
 
   resetItems () {
@@ -74,8 +78,8 @@ class App extends React.Component {
 
             {!element.status
               ? <div className="wrapper-flex">
-                  <button className="button" onClick={() => {this.completeItem(element.id)}}>Done</button>
-                  <button className="button" >Change</button>
+                  <button className="button button-done" onClick={() => {this.completeItem(element.id)}}>Done</button>
+                  <button className="button button-delete" onClick={() => {this.deleteItem((element.id))}}>Delete</button>
                 </div>
               : ""
             }
@@ -100,7 +104,7 @@ class App extends React.Component {
         <div className="wrapper-flex" >
           <button className="button" onClick={this.addItem}>Add</button>
           {this.state.items.length > 0
-            ? <button className="button" onClick={this.resetItems}>Reset</button>
+            ? <button className="button button-delete" onClick={this.resetItems}>Reset</button>
             : ""
           }
         </div>
