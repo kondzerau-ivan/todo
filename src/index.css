@@ -134,9 +134,17 @@ code {
 }
 
 .button-done {
-  background-color: #375f40;
+  background-color: #243e29;
+}
+
+.button-done:hover {
+  background-color: #0e1f11;
 }
 
 .button-delete {
   background-color: brown;
+}
+
+.button-delete:hover {
+  background-color: #741919;
 }
