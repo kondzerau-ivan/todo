@@ -1,1 +1,1 @@
-https://kondzerau-ivan.github.io/todobuild/
+https://kondzerau-ivan.github.io/todo/
