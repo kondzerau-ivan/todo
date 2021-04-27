@@ -78,7 +78,7 @@ class App extends React.Component {
 
             {!element.status
               ? <div className="wrapper-flex">
-                  <button className="button button-done" onClick={() => {this.completeItem(element.id)}}>Done</button>
+                  <button className="button" onClick={() => {this.completeItem(element.id)}}>Done</button>
                   <button className="button button-delete" onClick={() => {this.deleteItem((element.id))}}>Delete</button>
                 </div>
               : ""
