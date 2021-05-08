@@ -3,7 +3,7 @@
 
 **Created with React library.**
 
-## ToDo app features: ##
+## Features: ##
 
 * Create task;
 * Change task status to "done";
