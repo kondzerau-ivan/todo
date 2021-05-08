@@ -1,4 +1,4 @@
-# <a href="https://kondzerau-ivan.github.io/todo/" target="_blank">Simple ToDo List portfolio project</a> #
+# <a href="https://kondzerau-ivan.github.io/todo/" target="_blank">ToDo List portfolio project</a> #
 
 
 **Created with React library.**
